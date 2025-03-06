@@ -1,0 +1,64 @@
+/* 기본 스타일 초기화 */
+body, html {
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  height: 100%;
+  overflow-x: hidden;
+  font-family: 'Arial', sans-serif;
+}
+
+/* 컨테이너 스타일 */
+.container {
+  scroll-snap-type: y mandatory;
+  overflow-y: scroll;
+  height: 100vh;
+}
+
+/* 슬라이드 스타일 */
+.slide {
+  width: 100%;
+  height: 100vh;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  scroll-snap-align: start;
+  opacity: 0;
+  transition: opacity 1s ease-in;
+}
+
+.slide.active {
+  opacity: 1;
+}
+
+/* 네비게이션 Dot */
+.nav-dots {
+  position: fixed;
+  right: 20px;
+  top: 50%;
+  transform: translateY(-50%);
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.dot {
+  width: 12px;
+  height: 12px;
+  background: gray;
+  border-radius: 50%;
+  cursor: pointer;
+  transition: background 0.3s;
+}
+
+.dot.active {
+  background: white;
+  transform: scale(1.3);
+}
+
+/* 반응형 설정 */
+@media (max-width: 600px) {
+  .slide {
+    background-size: contain;
+  }
+}
